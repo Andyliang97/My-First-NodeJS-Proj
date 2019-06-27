@@ -54,5 +54,10 @@ app.get("/complement", function(req, res) {
  */
 app.use("/public", express.static("./public"));
 
-app.listen(3000);
-console.log("listening on http://localhost:3000");
+/**
+ * When running on a server (often referred to as running in production) you need to listen on port 80. 
+ * Luckily your server will pass this information to you via a special variable, process.env.PORT
+ */
+const port = process.env.PORT || 3000;
+app.listen(port);
+console.log(`listening on http://localhost:${port}`);
